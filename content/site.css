@@ -1,0 +1,586 @@
+/** BASIC */
+
+body 
+{
+    background-color: #EBEAE3;
+	margin: 10px 0;
+	font: normal small Arial, Helvetica, sans-serif;
+	font-size: .6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	padding-top: 0;
+	/*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+}
+
+a {
+	color: #9F0026;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #B20026;
+	text-decoration: underline;
+}
+
+a.ui-button:hover 
+{
+    color: #026890;
+}
+
+#message
+{
+    padding: .7em; 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#borderDiv
+{
+    width:100%;
+    margin-left:1%;
+    margin-top:50px;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #A6C9E2;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+    background-color: #FFFFFF;
+}
+/** HEADER */
+
+#header {
+	background: url(images/wfhmlogo.gif) no-repeat left bottom;
+	width: 95%;
+	height: 80px;
+	padding-top: 15px;
+	padding-left: 10px;
+	margin-top: -77px;
+	margin-bottom: 32px;
+    margin-left:10px;
+    position:relative;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 18px 10px 0px 155px;
+	font-size: 36px;
+	letter-spacing: -.05em;
+	color: #777777;
+}
+
+#header h2 {
+	display: none;
+}
+
+/** MENU */
+
+#menu {
+	width: 100%;
+	margin: -75px auto 0 auto;
+    position:relative;
+    height:0;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: right;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	padding: 0 10px 0 11px;
+	border: none;
+	border-left: 1px solid #83895C;
+	color: #83895C;
+}
+
+#menu a:hover {
+	color: #83895C;
+}
+
+#menu .first a {
+	border: none;
+}
+
+/** BulkAssign **/
+#loan-list-container
+{
+    text-align: center;
+    width: 100%;
+}
+#loan-list
+{
+    width: 100%;
+}
+
+/** CONTENT */
+
+.user-role
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: .9em;
+}
+
+#content {
+}
+
+#columnDivHolder
+{
+    margin: 25px 0 0 0;
+}
+
+.columnFloat 
+{
+    position:relative;
+	float: left;
+	padding:0px;
+	margin:0px;
+}
+
+#columnA {
+	float: left;
+	width: 200px;
+	min-height: 300px;
+	height:100%;
+	padding: 25px 10px 50px 20px;
+	background-color: #DDDDDD;
+	border-right:#A6C9E2 1px solid;
+    margin:0px;	
+}
+
+#columnA h3
+{
+    margin-bottom:-5px;
+	padding-bottom: 0px;
+}
+
+#columnA h4
+{
+    margin-bottom:0px;
+	padding-bottom: 0px;
+}
+
+#columnA ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: inside circle;
+}
+
+#columnA a 
+{
+    font-size: x-small;
+    font-weight: bold;
+	color: #CD0026;
+	text-decoration: none;
+}
+
+#columnA a:hover {
+	text-decoration: underline;
+	color: #D40026;
+}
+
+#columnA p
+{
+    font-size: small;
+}
+
+#columnA .menu {
+}
+
+
+#columnA .menu ul {
+	list-style: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#columnA .menu li 
+{
+}
+
+#columnA .menu a {
+	font-size:.85em;
+	padding-bottom: 10px;
+}
+
+fieldset {
+	margin-top:10px;  
+	margin-bottom:10px;  
+	margin-left:-10px;
+}
+
+legend
+{
+    border-color:#A6C9E2;
+	background:#2191C0;
+    font-weight: bold;
+    font-size: small;
+    display: inline;
+    padding: 2px 5px 2px 5px;
+}
+
+#columnA fieldset 
+{
+	background-color: #E5E5E5;
+    border: 1px solid #A6C9E2;
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 15px;
+}
+
+#columnA legend
+{
+    margin-left:-7px;
+}
+
+#columnB {
+	float: left;
+	padding: 25px 20px 0 30px;
+}
+
+.columnFloatClear
+{
+    clear:both; 
+    font-size:0;
+    height:0px; 
+    padding:0px;
+	margin: 0px;
+}
+
+.ui-jqgrid-hbox {
+    padding-right: 0px !important;
+}
+
+#loanTabs
+{
+    margin:0;
+    padding:0;
+}
+
+#editProfile
+{
+    font-size: smaller;
+}
+
+.smallLink a 
+{
+    font-size: x-small;
+    font-weight: bold;
+	color: #CD0026 !important;
+	text-decoration: none;
+}
+
+.smallLink a:hover {
+	text-decoration: underline;
+	color: #D40026;
+}
+
+/** FOOTER */
+
+#footer {
+	width: 96%;
+	margin-left: 1%;
+	height: 0px;
+	position: relative;
+	padding: 0px;
+	font-size: 8pt;
+	line-height:25px;
+}
+
+#footerImage 
+{
+    position:absolute;
+    bottom: -35px;
+    right: 1%;
+}
+
+#footer p {
+	margin: 0;
+	padding: 35px 0 0 20px;
+	font:    9px Arial, Helvetica, sans-serif;
+}
+
+.version
+{
+    font-weight: bolder;
+    padding-right: 10px;
+}
+
+legend
+{
+    font-weight: bold;
+    font-size: x-small;
+    display: inline;
+}
+
+.checklist
+{
+}
+
+.checkistCheckbox
+{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.radioButton
+{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+#columnB fieldset label 
+{
+    white-space:nowrap;
+    float:left;
+    vertical-align:text-bottom;
+}
+
+.checklistSpacer
+{
+    height:5px;
+}
+
+.searchCell
+{
+    float: left;
+    padding-right: 10px;
+}
+
+.editFieldContainer
+{
+    padding-left:25px;
+}
+
+.searchButtonContainer
+{
+    margin-top:10px;
+}
+
+.resultsGridContainer
+{
+    margin-bottom:15px;
+}
+
+.loanColumn
+{
+    position: relative;
+    margin: 0px;
+    padding-left: 25px;
+    width: 45%;
+    float: left;
+}
+.contactCodeColumn
+{
+    position: relative;
+    margin: 0px;
+    padding-left: 15px;
+    width: 30%;
+    float: left;
+}
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label,
+.display-field,
+.editor-field
+{
+    margin: 0.5em 0;
+}
+
+.display-label,
+.editor-label
+{
+    font-size:smaller;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.editor-label
+{
+    margin-top: 0.75em;  
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+.radio-field
+{
+    margin: 0.5em 0;
+}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #CE0808;
+}
+
+.ui-widget .field-validation-error
+{
+    padding-top:5px;
+    color: #CE0808;
+    display: block;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #CE0808;
+    background-color: #F9F3F2;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+#btnTransferFrom,
+#btnTransferTo
+{
+    width:75px;
+}
+
+.environment
+{
+    padding: 7px;
+}
+
+.environment span
+{
+    float: left; 
+    margin-right: .3em;
+}
+
+
+/* #Pomegranate Flat Button
+==================================================*/
+
+.container .sixteen.columns   { width: 940px; }
+
+.pomegranate-flat-button {
+  position: relative;
+  vertical-align: top;
+  height: 23px;
+  padding: 100;
+  font-size: 12px;
+  font-weight:bold;
+  padding:20 20 20 120;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #454545;
+  border: 0;
+  border-bottom: 2px solid #b53224;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #b53224;
+  box-shadow: inset 0 -2px #b53224;
+}
+.pomegranate-flat-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.GridviewScrollHeader TH, .GridviewScrollHeader TD 
+{ 
+    padding: 5px; 
+    font-weight: bold; 
+    white-space: nowrap; 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #4A4A4A; 
+    text-align: left; 
+    color:#ffffff;
+    vertical-align: bottom; 
+} 
+.GridviewScrollItem TD 
+{ 
+    padding: 5px; 
+    white-space: nowrap; 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #FFFFFF; 
+} 
+
+.GridviewScrollTable 
+{ 
+    border-top: 1px solid #AAAAAA; 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #FFFFFF; 
+} 
+
+.GridviewScrollTablenowrap 
+{ 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #FFFFFF; 
+    white-space: nowrap; 
+} 
+
+.GridviewScrollTableWrap 
+{ 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #FFFFFF; 
+    white-space:normal; 
+} 
+.GridviewScrollTablenowrapP 
+{ 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #FFFFFF; 
+    white-space: nowrap; 
+    color:Purple;
+} 
+
+.GridviewScrollTablenowrapG 
+{ 
+    border-right: 1px solid #AAAAAA; 
+    border-bottom: 1px solid #AAAAAA; 
+    background-color: #FFFFFF; 
+    white-space: nowrap; 
+    color:Green;
+} 
+
+
+.ui-dialog-osx {
+    -moz-border-radius: 0 0 8px 8px;
+    -webkit-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px; border-width: 0 8px 8px 8px;
+}
+
+.ui-autocomplete {
+    background-color:white;
+    width: 600px;
+}

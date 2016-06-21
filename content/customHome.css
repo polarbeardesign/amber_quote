@@ -1,0 +1,127 @@
+/*  Custom Styles */
+
+BODY, HTML {
+	font-family: 'Open Sans', sans-serif;
+}
+
+HTML { 
+  background: url(images/Swiss-Belhote-Exterior-blurred.jpg) no-repeat center center fixed !important; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+
+body {
+	background: none !important;
+}
+
+.contain-to-grid, .top-bar, .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+	background: #930c30;
+}
+.top-bar-section > ul > .divider {
+	border-right: solid 1px #bd6883;
+}
+
+
+
+
+h1 {
+	font-size: 2.44444rem;
+}
+h2 {
+	font-size: 2.05556rem;
+}
+h3 {
+	font-size: 1.5rem;
+}
+h4 {
+	font-size: 1.27778rem;
+}
+h5 {
+	font-size: 1rem;
+}
+h6 {
+	font-size: 1rem;
+}
+p, li, dd {
+	font-size: .85rem;
+	font-weight:800;
+}
+
+a, .slick-prev::before, .slick-next::before {
+  color: #00AEEF; 
+}
+a:hover, a:focus {
+	color: #009DD6; 
+}
+
+button, .button {
+	background-color: #00AEEF; 
+}
+button:hover, button:focus, .button:hover, .button:focus {
+	background-color: #009DD6; 
+}
+
+.top-bar-section ul li > a.button.success {
+	background-color: #39B54A;
+	border-color: #39B54A;
+}
+.top-bar-section ul li > a.button.success:hover, .top-bar-section ul li > a.button.success:focus { 
+	background-color: #2F993E;
+}
+
+.top-bar .name h1 {
+	line-height: 40px;
+}
+
+
+.homecontent {
+	margin-top: 75px;
+}
+.homecontent h1, .homecontent h2, .homecontent h3, .homecontent h4, .homecontent h5, .homecontent h6, .homecontent p, .homecontent li {
+	color: #FFFFFF;
+}
+.homecontent .panel {
+	background-color: transparent;
+	background-image: url(images/shade.png);
+	border: none;
+	border-radius: 5px;
+}
+.homecontent ul {
+	list-style: none;
+	margin-left: 0;
+}
+.homecontent li {
+	background-image: url(images/arrow.png);
+	background-repeat: no-repeat;
+	background-position: 0 6px;
+	padding: 0 0 0 15px;
+	margin: 0;
+}
+button.secondary, .button.secondary {
+	border: none;
+	background-color: #ffa412;
+	color: #FFFFFF;
+	font-weight:bold
+}
+button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
+	background-color: #f39c12; 
+	color: #FFFFFF;
+}
+
+form .row .postfix-radius.row.collapse input, form .row .postfix-radius.row.collapse textarea, form .row .postfix-radius.row.collapse select {
+	border-radius: 0;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px; 
+}
+form .row .postfix-radius.row.collapse .postfix {
+	border-radius: 0;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px; 
+}

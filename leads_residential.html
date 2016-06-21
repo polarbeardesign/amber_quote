@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Residential Leads - AMBER Lodging Quoting Tool</title>
+
+
+
+    <link href="/content/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="/content/foundation.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/custom.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="/content/site.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/Amber.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/jquery-ui-1.8.12.custom.css" rel="stylesheet" type="text/css" />
+
+    
+
+    
+
+<link href="/Content/Form.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+    <script src="/Scripts/jquery-1.7.1.js"></script>
+
+<script src="/Scripts/modernizr-2.8.3.js"></script>
+
+<script src="/Scripts/foundation.js"></script>
+
+
+
+    <script src="/Scripts/jquery-ui-1.8.20.js"></script>
+
+
+
+
+
+    
+
+<script type="text/javascript">
+
+    var site = site || {};
+
+    site.baseUrl = site.baseUrl || "";
+
+
+
+    $(document).ready(function () {
+
+        $('#LeadOptions1').hide();
+
+
+
+        $('#btnCreateLead').click(function () {
+
+            var url = site.baseUrl + "/Leads/New";
+
+            window.location = url;
+
+        });
+
+
+
+        $('#SP').change(function () {
+
+            var table = $('#tblLeads').DataTable();
+
+            table.search(this.value).draw();
+
+        });
+
+
+
+        $('#AUsers').change(function () {
+
+            var table = $('#tblLeads').DataTable();
+
+            var searchText = $('#AUsers option:selected').text();
+
+            table.search(searchText).draw();
+
+        });
+
+
+
+        $('#btnFilterLeads').click(function () {
+
+            var table = $('#tblLeads').DataTable();
+
+            var searchText = $('#SP option:selected').text() + " " + $('#AUsers option:selected').text();
+
+            table.search(searchText).draw();
+
+        });
+
+        $("#LO").dialog
+
+           (
+
+                {
+
+                    modal: true,
+
+                    draggable: true,
+
+                    resizable: false,
+
+                    position: ['center', 'top'],
+
+                    show: 'blind',
+
+                    hide: 'blind',
+
+                    height: 700,
+
+                    width: 1100,
+
+                    autoOpen: false
+
+                }
+
+            );
+
+
+
+        $(document).find("a[id^='VO_']").live('click', function () {
+
+            var LeadID = this.id.split('_')[1];
+
+            var url = site.baseUrl + $('#LeadOptions1').data("url") + "?leadID=" + LeadID.toString();
+
+            $('#LeadOptions1').load(url);
+
+            $('#LeadOptions1').show();
+
+            $("#LO").dialog("open");
+
+        });
+
+    });
+
+
+
+    $(function () {
+
+        var txt = "";
+
+        $("#tbodyData").html("");
+
+        $.ajax({
+
+            type: "POST",
+
+            url: "/Amber/getLeads",
+
+            dataType: "json",
+
+            data: { LeadType: "R" },
+
+            success: function (data) {
+
+                $.each(data, function (id, Leads) {
+
+                    txt = "<tr>";
+
+                    txt = txt + "<td><a href='/Leads/Edit/" + Leads.LeadID + "'>" + Leads.LeadID + "</a></td>";
+
+                    txt = txt + "    <td>" + formatdate(new Date(parseInt(Leads.createdOn.substr(6)))) + "</td>";
+
+                    txt = txt + "   <td>" + Leads.AssignedTo + "</td>";
+
+                    txt = txt + "   <td>" + Leads.LeadStatus + "</td>";
+
+                    txt = txt + "    <td>" + Leads.ClinetName + "</td>";
+
+                    txt = txt + "    <td>" + Leads.ContactName + "</td>";
+
+                    txt = txt + "    <td>" + Leads.Location + " , " + Leads.Zipcode + "</td>";
+
+                    if (Leads.LeadStatus == "Quote Submitted") {
+
+                        txt = txt + "   <td><a  href='/Leads/Details/" + Leads.LeadID + "'>More Info</a>&nbsp;&nbsp;<a href='https://quotes.amberlodging.com/?LeadID=" + Leads.PublicLeadID + "' target='_new'>View Options</a></td>";
+
+                    }
+
+                    else {
+
+                        txt = txt + "   <td><a  href='/Leads/Details/" + Leads.LeadID + "'>More Info</a>&nbsp;&nbsp;<a href='#' id='VO_" + Leads.LeadID + "'>View Options</a></td>";
+
+                    }
+
+                    txt = txt + " </tr>";
+
+                    $("#tbodyData").append(txt).removeClass("hidden");
+
+                });
+
+
+
+                $('#tblLeads').dataTable({
+
+                    "retrieve": true,
+
+                    "scrollY": "750px",
+
+                    "scrollCollapse": true
+
+                });
+
+            },
+
+            error: function () {
+
+                alert("Error while getting Leads.Please try again");
+
+            }
+
+        });
+
+    });
+
+
+
+    function formatdate(date) {
+
+        var curr_date = date.getDate();
+
+        var curr_month = date.getMonth();
+
+        curr_month++;
+
+        var curr_year = date.getFullYear();
+
+        return curr_month + "/" + curr_date + "/" + curr_year;
+
+    }
+
+</script>
+
+
+
+
+
+     <script src="/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+        <header>
+
+               <div id="Header1" class="fixed contain-to-grid">
+
+			<nav class="top-bar" data-topbar role="navigation">
+
+				<ul class="title-area">
+
+					<li class="name">
+
+						<h1><a href="/"><img src="/content/images/amber-logo.png" alt="AMBER Lodging Quoting Tool"></a></h1>
+
+					</li>
+
+					 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
+				</ul>
+
+			
+
+				<section class="top-bar-section">
+
+					<!-- Right Nav Section -->
+
+					<ul class="right">
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Leads</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/Leads/New">Create New Lead</a></li>
+
+								<li><a href="/Leads/Corporate">Corporate Leads</a></li>
+
+								<li><a href="/Leads/Residential">Residential Leads</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Apartments</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Apartment Search</a></li>
+
+								<li><a href="#">Reservations</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Customers</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Client Profiles</a></li>
+
+								<li><a href="">Customer</a></li>
+
+                                <li><a href="">Customer List</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Vendors</a>
+
+						    <ul class="dropdown">
+
+                                <li><a href="/Partners/AddPartners">Partners</a></li>
+
+                                <li><a href="/Partners/GetPartnersByCity">GetPartnersByCity</a></li>
+
+						   </ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Admin</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Reports</a></li>
+
+								<li><a href="#">Forms</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardList">List Credit Card</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardLookup">Credit Card Lookup</a></li>
+
+								<li><a href="/AddCreditCard/AddCreditCard">Add Credit Card</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+                        <li class="has-dropdown">
+
+							<a href="#">Audits</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/AMBER/Audit1">Audit 1 : Reservation</a></li>
+
+                                <li><a href="/AMBER/Audit2AfterMoveInMain">Audit 2 : Unit Details</a></li>
+
+                                <li><a href="/AMBER/Audit3Extension">Audit 3 : Extension</a></li>
+
+                                <li><a href="/AMBER/Audit4MoveOut">Audit 4 : Move out</a></li>
+
+                                <li><a href="#">Audit 5 - Pos move out</a></li>
+
+							</ul>
+
+						</li>
+
+					</ul>
+
+			
+
+				</section>
+
+			</nav>
+
+		</div>
+
+
+
+            <div id="DebugHeader" class="clearfix">
+
+                <div class="container" background-color: #EBEAE3;>
+
+                    <p>WARNING. This application is in debug mode. All information along with changes will not be live.</p>
+
+                </div>
+
+            </div>
+
+
+
+        </header>
+
+        <div id="body">
+
+            
+
+            <section class="content-wrapper main-content clear-fix">
+
+               <div id="Content" class="clearfix">
+
+		            <div class="container">
+
+                        <br />
+
+                        
+
+<h1>Residential Leads</h1>
+
+
+
+<h3>Filter Options</h3>
+
+<div class="testbox">
+
+    <h4 class="clear">
+
+        Lead Status: <select name="LS" id="SP">
+
+            <option>New</option>
+
+            <option>Pending</option>
+
+            <option>Bid Preparation</option>
+
+            <option>Quote Submitted</option>
+
+            <option>Rejected</option>
+
+            <option>Reserved</option>
+
+            <option>Not in Service area</option>
+
+            <option>No Response</option>
+
+        </select> &nbsp;&nbsp;
+
+        Assigned To : <select id="AUsers" name="AUsers"><option value=""></option>
+
+<option value="Alahna">Alahna Krueger</option>
+
+<option value="ATemperli">Anita Temperli</option>
+
+<option value="amoncrief">Anna Moncrief</option>
+
+<option value="CSands">Chris Sands</option>
+
+<option value="CBorchgardt">Clint Borchgardt</option>
+
+<option value="JCorr">Janelle Corr</option>
+
+<option value="KTonkin">Kaitlyn Tonkin</option>
+
+<option value="msandlin">Michelle Sandlin</option>
+
+</select>  &nbsp;&nbsp;
+
+        <input type="button" value="&nbsp;Filter Leads&nbsp;" id="btnFilterLeads" class="pomegranate-flat-button" />
+
+        &nbsp;&nbsp;
+
+        <input type="button" value="&nbsp;Create New Lead&nbsp;" id="btnCreateLead" class="pomegranate-flat-button" />
+
+    </h4>
+
+</div>
+
+<hr />
+
+<div class="partialContents">
+
+    <table class="display" width="100%" id="tblLeads">
+
+        <thead>
+
+            <tr>
+
+                <th>Lead #</th>
+
+                <th>Created On</th>
+
+                <th>Assigned To</th>
+
+                <th>Status</th>
+
+                <th>Client Name</th>
+
+                <th>Contact at Client</th>
+
+                <th>Request Location</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tbodyData"></tbody>
+
+    </table>
+
+    <div id="LO">
+
+        <div id="LeadOptions1" data-url="/Amber/AllOptions">
+
+            <img src="/Content/Images/indicator.white.gif" /> Loading ...
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+                        <br/>
+
+                    </div>
+
+               </div>
+
+            </section>
+
+        </div>
+
+        <script>
+
+            $(document).foundation();
+
+        </script>
+
+</body>
+
+</html>
+

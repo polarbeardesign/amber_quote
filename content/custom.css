@@ -1,0 +1,35 @@
+/*  Custom Styles */
+.contain-to-grid, .top-bar, .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+	background: #930c30;
+}
+.top-bar-section > ul > .divider {
+	border-right: solid 1px #bd6883;
+}
+
+
+a, .slick-prev::before, .slick-next::before {
+  color: #00AEEF; 
+}
+a:hover, a:focus {
+	color: #009DD6; 
+}
+
+button, .button {
+	background-color: #00AEEF; 
+}
+button:hover, button:focus, .button:hover, .button:focus {
+	background-color: #009DD6; 
+}
+
+.top-bar-section ul li > a.button.success {
+	background-color: #39B54A;
+	border-color: #39B54A;
+}
+.top-bar-section ul li > a.button.success:hover, .top-bar-section ul li > a.button.success:focus { 
+	background-color: #2F993E;
+}
+
+.top-bar .name h1 {
+	line-height: 40px;
+}
+

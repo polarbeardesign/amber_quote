@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Home - AMBER Lodging Quoting Tool</title>
+
+    <link href="content/foundationHome.css" rel="stylesheet" type="text/css" />
+
+    <link href="content/customHome.css" rel="stylesheet" type="text/css" />
+
+    <script src="Scripts/jquery-1.7.1.js"></script>
+
+<script src="Scripts/modernizr-2.8.3.js"></script>
+
+<script src="Scripts/foundation.js"></script>
+
+
+
+    
+
+</head>
+
+<body>
+
+        <header>
+
+
+
+            <div id="Header1" class="fixed contain-to-grid">
+
+			<nav class="top-bar" data-topbar role="navigation">
+
+				<ul class="title-area">
+
+					<li class="name">
+
+						<h1><img src="content/images/amber-logo.png" alt="AMBER Lodging Quoting Tool"></h1>
+
+					</li>
+
+				</ul>
+
+
+
+                				<section class="top-bar-section">
+
+					<!-- Right Nav Section -->
+
+					<ul class="right">
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Leads</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/Leads/New">Create New Lead</a></li>
+
+								<li><a href="/Leads/Corporate">Corporate Leads</a></li>
+
+								<li><a href="/Leads/Residential">Residential Leads</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Apartments</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Apartment Search</a></li>
+
+								<li><a href="#">Reservations</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Customers</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/Partners/Clientprofiles">Client Profiles</a></li>
+
+                                <li><a href="#">Vendor Services</a></li>
+
+                                <li><a href="#">Vendors List</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Vendors</a>
+
+						    <ul class="dropdown">
+
+                                <li><a href="/Partners/AddPartners">Partners</a></li>
+
+                                <li><a href="/Partners/GetPartnersByCity">GetPartnersByCity</a></li>
+
+						        
+
+						    </ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Admin</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Reports</a></li>
+
+								<li><a href="#">Forms</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardList">List Credit Card</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardLookup">Credit Card Lookup</a></li>
+
+								<li><a href="/AddCreditCard/AddCreditCard">Add Credit Card</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+                        <li class="has-dropdown">
+
+							<a href="#">Audits</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/AMBER/Audit1">Audit 1 : Reservation</a></li>
+
+                                <li><a href="/AMBER/Audit2AfterMoveInMain">Audit 2 : Unit Details</a></li>
+
+                                <li><a href="/AMBER/Audit3Extension">Audit 3 : Extension</a></li>
+
+                                <li><a href="/AMBER/Audit4MoveOut">Audit 4 : Move out</a></li>
+
+                                <li><a href="#">Audit 5 - Pos move out</a></li>
+
+							</ul>
+
+						</li>
+
+					</ul>
+
+			
+
+				</section>
+
+
+
+			</nav>
+
+		</div>
+
+
+
+                <div id="DebugHeader" class="clearfix">
+
+                    <div class="container">
+
+                        <p><font size="4" color="white">
+
+                            WARNING. This application is in debug mode. All information along with changes will not be live.</font></p>
+
+                    </div>
+
+                </div>
+
+       </header>
+
+        <div id="body">
+
+            
+
+            <section class="content-wrapper main-content clear-fix">
+
+               <div id="Content" class="clearfix">
+
+		            <div class="container">
+
+                        
+
+    <div class="row homecontent">
+
+      <div class="small-8 large-8 columns">
+
+        <div class="row">
+
+					<div class="large-12 columns">
+
+						<div class="panel">
+
+							<h4>Apartments</h4>
+
+							<form>
+
+								<div class="row">
+
+									<div class="large-12 columns">
+
+										<div class="row collapse postfix-radius">
+
+											<div class="small-10 columns">
+
+												<input type="text" placeholder="Find an Apartment...">
+
+											</div>
+
+											<div class="small-2 columns">
+
+												<a href="#" class="button postfix">Search</a>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</form>
+
+							<ul>
+
+								<li><a href="#">View All Reservations</a></li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+        </div>
+
+        <div class="row">
+
+					<div class="large-6 medium-6 columns">
+
+						<div class="panel">
+
+							<h4>Customers</h4>
+
+							<ul>
+
+								<li><a href="#">Client Profiles</a></li>
+
+								<li><a href="#">Partners</a></li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+					<div class="large-6 medium-6 columns">
+
+						<div class="panel">
+
+							<h4>Vendors</h4>
+
+							<ul>
+
+								<li><a href="#">Vendor Services</a></li>
+
+								<li><a href="#">Vendors List</a></li>
+
+							</ul>
+
+						</div>
+
+                    </div>
+
+        </div>
+
+      </div>     
+
+
+
+      <div class="large-4 medium-4 columns">
+
+		<div class="panel">
+
+        	<h4>Leads</h4>
+
+        	<a href="/AMBER/NewLead" class="radius secondary button">Create New Lead</a>          
+
+        	<ul>
+
+						<li><a href="/AMBER/CropLeadList">Corporate Leads</a></li>
+
+						<li><a href="/AMBER/ResLeadList">Residential Leads</a></li>
+
+					</ul>        
+
+        </div>
+
+		
+
+       <!-- <div class="panel">
+
+        	<h4>Admin</h4>
+
+        	<ul>
+
+			    <li><a href="#">Reports</a></li>
+
+			    <li><a href="#">Forms</a></li>
+
+		    </ul>        
+
+        </div>-->
+
+      </div>
+
+
+
+
+
+     <!-- <div class="large-4 medium-4 columns">
+
+        <div class="row">
+
+					<div class="large-12 columns">
+
+						<div class="panel">
+
+							<h4>Audits</h4>
+
+							<ul>
+
+								<li><a href="AMBER/Audit1">Audit 1 Reserv Before Move In</a></li>
+
+                                <li><a href="AMBER/Audit2AfterMoveIn">Audit 2 Unit After Move In</a></li>
+
+                                <li><a href="AMBER/Audit2ReservFinancial">Audit 2 Reserv Financial</a></li>
+
+                                <li><a href="AMBER/Audit2UnitFinancial">Audit 2 Unit Financial</a></li>
+
+                                <li><a href="AMBER/Audit3Extension">Audit 3 - Extension</a></li>
+
+                                <li><a href="AMBER/Audit4MoveOut">Audit 4 - Move out</a></li>
+
+                                <li><a href="#">Audit 5 - Pos move out</a></li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+        </div>
+
+        </div>-->
+
+
+
+
+
+    </div>
+
+
+
+    <script>
+
+        $(document).foundation();
+
+    </script>
+
+                        <br/>
+
+                    </div>
+
+               </div>
+
+            </section>
+
+        </div>
+
+</body>
+
+</html>
+

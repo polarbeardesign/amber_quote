@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>GetPartnersByCity - AMBER Lodging Quoting Tool</title>
+
+
+
+    <link href="/content/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="/content/foundation.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/custom.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="/content/site.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/Amber.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/jquery-ui-1.8.12.custom.css" rel="stylesheet" type="text/css" />
+
+    
+
+    
+
+
+
+    <script src="/Scripts/jquery-1.7.1.js"></script>
+
+<script src="/Scripts/modernizr-2.8.3.js"></script>
+
+<script src="/Scripts/foundation.js"></script>
+
+
+
+    <script src="/Scripts/jquery-ui-1.8.20.js"></script>
+
+
+
+
+
+    
+
+
+
+     <script src="/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+        <header>
+
+               <div id="Header1" class="fixed contain-to-grid">
+
+			<nav class="top-bar" data-topbar role="navigation">
+
+				<ul class="title-area">
+
+					<li class="name">
+
+						<h1><a href="/"><img src="/content/images/amber-logo.png" alt="AMBER Lodging Quoting Tool"></a></h1>
+
+					</li>
+
+					 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
+				</ul>
+
+			
+
+				<section class="top-bar-section">
+
+					<!-- Right Nav Section -->
+
+					<ul class="right">
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Leads</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/Leads/New">Create New Lead</a></li>
+
+								<li><a href="/Leads/Corporate">Corporate Leads</a></li>
+
+								<li><a href="/Leads/Residential">Residential Leads</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Apartments</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Apartment Search</a></li>
+
+								<li><a href="#">Reservations</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Customers</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Client Profiles</a></li>
+
+								<li><a href="">Customer</a></li>
+
+                                <li><a href="">Customer List</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Vendors</a>
+
+						    <ul class="dropdown">
+
+                                <li><a href="/Partners/AddPartners">Partners</a></li>
+
+                                <li><a href="/Partners/GetPartnersByCity">GetPartnersByCity</a></li>
+
+						   </ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Admin</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Reports</a></li>
+
+								<li><a href="#">Forms</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardList">List Credit Card</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardLookup">Credit Card Lookup</a></li>
+
+								<li><a href="/AddCreditCard/AddCreditCard">Add Credit Card</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+                        <li class="has-dropdown">
+
+							<a href="#">Audits</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/AMBER/Audit1">Audit 1 : Reservation</a></li>
+
+                                <li><a href="/AMBER/Audit2AfterMoveInMain">Audit 2 : Unit Details</a></li>
+
+                                <li><a href="/AMBER/Audit3Extension">Audit 3 : Extension</a></li>
+
+                                <li><a href="/AMBER/Audit4MoveOut">Audit 4 : Move out</a></li>
+
+                                <li><a href="#">Audit 5 - Pos move out</a></li>
+
+							</ul>
+
+						</li>
+
+					</ul>
+
+			
+
+				</section>
+
+			</nav>
+
+		</div>
+
+
+
+            <div id="DebugHeader" class="clearfix">
+
+                <div class="container" background-color: #EBEAE3;>
+
+                    <p>WARNING. This application is in debug mode. All information along with changes will not be live.</p>
+
+                </div>
+
+            </div>
+
+
+
+        </header>
+
+        <div id="body">
+
+            
+
+            <section class="content-wrapper main-content clear-fix">
+
+               <div id="Content" class="clearfix">
+
+		            <div class="container">
+
+                        <br />
+
+                        
+
+
+
+<form action="/Partners/GetPartnersByCity" method="post">    <fieldset>
+
+        <legend style="font-size:larger"><b>Partner By City</b></legend>
+
+        <div style="font-size: 8pt" ; class="editor-label"><b>City :</b></div>
+
+        <div class="editor-field">
+
+            <input class="text-box single-line" id="PartnersByCity" name="PartnersByCity" type="text" value="austin" />
+
+            <span class="field-validation-valid" data-valmsg-for="PartnersByCity" data-valmsg-replace="true"></span>
+
+        </div>
+
+        <p><input type="submit" value="Search" class="pomegranate-flat-button" /></p>
+
+    </fieldset>
+
+    <table class="gridTable">
+
+        <thead>
+
+            <tr>
+
+                <th>Company Name</th>
+
+                <th>City</th>
+
+                <th>State/Province/Region</th>
+
+                <th>Country</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=101%20Colorado%20High%20Rise%20LP">101 Colorado High Rise LP</a></td>
+
+                    <td>Austin                                            </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Alexan%20Ribelin%20Ranch">Alexan Ribelin Ranch</a></td>
+
+                    <td>Austin                                            </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Amber%20Lodging%20-%20TEST">Amber Lodging - TEST</a></td>
+
+                    <td>Austin</td>
+
+                    <td>TX</td>
+
+                    <td>USA</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=AMLI%20at%20Lantana%20Hills">AMLI at Lantana Hills</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=AMLI%20on%202nd">AMLI on 2nd</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Arium%20Tech%20Ridge">Arium Tech Ridge</a></td>
+
+                    <td>Austin                                            </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Austin%20Trails%20Apartments">Austin Trails Apartments</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Avanti%20Hills%20at%20the%20Galleria">Avanti Hills at the Galleria</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Balcones%20Club%20Apartments">Balcones Club Apartments</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX</td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=BELL%20AUSTIN%20SOUTHWEST">BELL AUSTIN SOUTHWEST</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Bell%20Hill%20Country%20Apts">Bell Hill Country Apts</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Bell%20Quarry%20Hill%20Apartments">Bell Quarry Hill Apartments</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Camden%20Amber%20Oaks">Camden Amber Oaks</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Camden%20Stoneleigh">Camden Stoneleigh</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Cielo%20Multifamily%20LLC">Cielo Multifamily LLC</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Crescent">Crescent</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=CWS%20Corporate%20Housing">CWS Corporate Housing</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Domain%20Parkside%20I%20LP">Domain Parkside I LP</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Gaines%20Ranch">Gaines Ranch</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Gene%20Edmiston">Gene Edmiston</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Hardrock%20Canyon">Hardrock Canyon</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=IMT%20at%20the%20Domain">IMT at the Domain</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Longhorn%20Lawns">Longhorn Lawns</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Meritage%20Steiner%20Ranch">Meritage Steiner Ranch</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Monterone%20Steiner%20Ranch">Monterone Steiner Ranch</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Nalle%20Woods">Nalle Woods</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=NORTHLAND%20SEDONA%20SPRINGS%20%20LLC">NORTHLAND SEDONA SPRINGS  LLC</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Orangewood%20Suites%20-%20Austin">Orangewood Suites - Austin</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Park%20at%20Monterey%20Oaks%20Apts">Park at Monterey Oaks Apts</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Paseo%20at%20Bee%20Cave">Paseo at Bee Cave</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Residences%20at%20the%20Domain">Residences at the Domain</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Riverlodge%20Apartments">Riverlodge Apartments</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=San%20Paloma%20Zavalasp%20Properties">San Paloma Zavalasp Properties</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Sendera%20Barton%20Creek%20Apts">Sendera Barton Creek Apts</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Tasha%2F%20Robert%20Cline">Tasha/ Robert Cline</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Test">Test</a></td>
+
+                    <td>Austin</td>
+
+                    <td>Tx</td>
+
+                    <td>USA</td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=The%20Property%20Society">The Property Society</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=The%20Ranch%20Apartments">The Ranch Apartments</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=The%20State%20House%20on%20Congress">The State House on Congress</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=The%20Triangle%20Austin">The Triangle Austin</a></td>
+
+                    <td>Austin                                                                                              </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Villages%20at%20the%20Domain">Villages at the Domain</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                                                                                                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Villas%20of%20Bristol%20Heights">Villas of Bristol Heights</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="/Partners/DetailPartners?CompanyName=Waters%20Park%20Apts">Waters Park Apts</a></td>
+
+                    <td>Austin                                  </td>
+
+                    <td>TX                  </td>
+
+                    <td>USA                                                                                                 </td>
+
+                </tr>
+
+                    </tbody>
+
+    </table>
+
+</form>
+
+
+
+<div align="right" style="font-size:medium">
+
+    <h3>
+
+        <a href="/Partners/AddPartners">Add Partners</a>
+
+    </h3>
+
+</div>
+
+
+
+<script>
+
+    $(document).foundation();
+
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+
+    $(document).foundation();
+
+</script>
+
+
+
+
+
+
+
+
+
+                        <br/>
+
+                    </div>
+
+               </div>
+
+            </section>
+
+        </div>
+
+        <script>
+
+            $(document).foundation();
+
+        </script>
+
+</body>
+
+</html>
+

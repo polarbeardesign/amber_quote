@@ -1,0 +1,56 @@
+/*
+ * jQuery UI CSS Framework 1.8.12
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon { display: inline; color:#ffffff; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: repeat-x scroll 50% 50% #000000; opacity:0.6; }
+
+
+/* Component containers
+----------------------------------*/
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #ffffff; background: #4A4A4A ; font-weight: normal; color: #ffffff; }
+
+
+/* Removes padding from title bar */
+.ui-dialog .ui-dialog-titlebar 
+{
+    padding: 0;
+    position: relative;
+}
+/* Remove title image and keep 'x' */
+.ui-widget-header {
+   
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+
+
+

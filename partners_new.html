@@ -1,0 +1,1355 @@
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>AddPartners - AMBER Lodging Quoting Tool</title>
+
+
+
+    <link href="/content/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="/content/foundation.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/custom.css" rel="stylesheet" type="text/css" />
+
+
+
+    <link href="/content/site.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/Amber.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+
+    <link href="/content/jquery-ui-1.8.12.custom.css" rel="stylesheet" type="text/css" />
+
+    
+
+    
+
+
+
+    <script src="/Scripts/jquery-1.7.1.js"></script>
+
+<script src="/Scripts/modernizr-2.8.3.js"></script>
+
+<script src="/Scripts/foundation.js"></script>
+
+
+
+    <script src="/Scripts/jquery-ui-1.8.20.js"></script>
+
+
+
+
+
+    
+
+
+
+     <script src="/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+        <header>
+
+               <div id="Header1" class="fixed contain-to-grid">
+
+			<nav class="top-bar" data-topbar role="navigation">
+
+				<ul class="title-area">
+
+					<li class="name">
+
+						<h1><a href="/"><img src="/content/images/amber-logo.png" alt="AMBER Lodging Quoting Tool"></a></h1>
+
+					</li>
+
+					 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
+				</ul>
+
+			
+
+				<section class="top-bar-section">
+
+					<!-- Right Nav Section -->
+
+					<ul class="right">
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Leads</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/Leads/New">Create New Lead</a></li>
+
+								<li><a href="/Leads/Corporate">Corporate Leads</a></li>
+
+								<li><a href="/Leads/Residential">Residential Leads</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Apartments</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Apartment Search</a></li>
+
+								<li><a href="#">Reservations</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Customers</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Client Profiles</a></li>
+
+								<li><a href="">Customer</a></li>
+
+                                <li><a href="">Customer List</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Vendors</a>
+
+						    <ul class="dropdown">
+
+                                <li><a href="/Partners/AddPartners">Partners</a></li>
+
+                                <li><a href="/Partners/GetPartnersByCity">GetPartnersByCity</a></li>
+
+						   </ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+						<li class="has-dropdown">
+
+							<a href="#">Admin</a>
+
+							<ul class="dropdown">
+
+								<li><a href="#">Reports</a></li>
+
+								<li><a href="#">Forms</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardList">List Credit Card</a></li>
+
+								<li><a href="/CreditCardLookup/CreditCardLookup">Credit Card Lookup</a></li>
+
+								<li><a href="/AddCreditCard/AddCreditCard">Add Credit Card</a></li>
+
+							</ul>
+
+						</li>
+
+						<li class="divider"></li>
+
+                        <li class="has-dropdown">
+
+							<a href="#">Audits</a>
+
+							<ul class="dropdown">
+
+								<li><a href="/AMBER/Audit1">Audit 1 : Reservation</a></li>
+
+                                <li><a href="/AMBER/Audit2AfterMoveInMain">Audit 2 : Unit Details</a></li>
+
+                                <li><a href="/AMBER/Audit3Extension">Audit 3 : Extension</a></li>
+
+                                <li><a href="/AMBER/Audit4MoveOut">Audit 4 : Move out</a></li>
+
+                                <li><a href="#">Audit 5 - Pos move out</a></li>
+
+							</ul>
+
+						</li>
+
+					</ul>
+
+			
+
+				</section>
+
+			</nav>
+
+		</div>
+
+
+
+            <div id="DebugHeader" class="clearfix">
+
+                <div class="container" background-color: #EBEAE3;>
+
+                    <p>WARNING. This application is in debug mode. All information along with changes will not be live.</p>
+
+                </div>
+
+            </div>
+
+
+
+        </header>
+
+        <div id="body">
+
+            
+
+            <section class="content-wrapper main-content clear-fix">
+
+               <div id="Content" class="clearfix">
+
+		            <div class="container">
+
+                        <br />
+
+                        
+
+
+
+<form action="/Partners/AddPartners" method="post">    <h1>Add Partners</h1>
+
+    <div class="testbox">
+
+        <table width="100%" cellspacing="4" cellpadding="4" align="center" style="text-align:center;">
+
+            <tr>
+
+                <td><b>Type :</b></td>
+
+                <td><b><input id="Type" name="Type" type="radio" value="D" /> Domestic <input id="Type" name="Type" type="radio" value="I" /> International</b></td>
+
+            </tr>
+
+            <tr><td><br /></td></tr>
+
+            <tr>
+
+                <td><b>CompanyName :</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="CompanyName" name="CompanyName" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="CompanyName" data-valmsg-replace="true"></span>
+
+                </td>
+
+                <td><b>Address :</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="Address" name="Address" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><b>City :</b></td>
+
+                <td class="editor-field"><select id="City" name="City"><option>Adelaide</option>
+
+<option>Agoura Hills</option>
+
+<option>Akron</option>
+
+<option>Albany</option>
+
+<option>Albuquerque</option>
+
+<option>Aliso Viejo</option>
+
+<option>All</option>
+
+<option>Allentown</option>
+
+<option>Alpharetta</option>
+
+<option>Altamonte Springs</option>
+
+<option>Amsterdam</option>
+
+<option>Ann Arbor</option>
+
+<option>Arlington</option>
+
+<option>Ashburn</option>
+
+<option>Aspen</option>
+
+<option>Atherton</option>
+
+<option>Atlanta</option>
+
+<option selected="selected">Austin</option>
+
+<option>Badung</option>
+
+<option>Bahrain</option>
+
+<option>Ballston Spa</option>
+
+<option>Bangalore</option>
+
+<option>Bangkok</option>
+
+<option>Barcelona</option>
+
+<option>Beaumont</option>
+
+<option>Beaverton</option>
+
+<option>Beijing</option>
+
+<option>Beilin District</option>
+
+<option>Belgium</option>
+
+<option>Bellevue</option>
+
+<option>Berlin</option>
+
+<option>Bern</option>
+
+<option>Bethel Park</option>
+
+<option>Bigfork</option>
+
+<option>Billerica</option>
+
+<option>Birmingham</option>
+
+<option>Bloomsbury City</option>
+
+<option>Blue Bell</option>
+
+<option>Boise</option>
+
+<option>Bossier City</option>
+
+<option>Boston</option>
+
+<option>Brasilia</option>
+
+<option>Brisbane</option>
+
+<option>Britol</option>
+
+<option>Broomfield</option>
+
+<option>Brussels</option>
+
+<option>Buenas Aires</option>
+
+<option>Burlingame</option>
+
+<option>Burnside</option>
+
+<option>Byberjaya</option>
+
+<option>CA - multiple cities</option>
+
+<option>Calgary</option>
+
+<option>Cambridge</option>
+
+<option>Canary Wharf</option>
+
+<option>Cannes</option>
+
+<option>Carlsbad</option>
+
+<option>Carolina</option>
+
+<option>Carrollton</option>
+
+<option>Cary</option>
+
+<option>Chandler</option>
+
+<option>Chapel Hill</option>
+
+<option>Charlotte</option>
+
+<option>Chattanooga</option>
+
+<option>Chengdu</option>
+
+<option>Chennai</option>
+
+<option>Chevy Chase</option>
+
+<option>Chicago</option>
+
+<option>Chiswick</option>
+
+<option>Christiansburg</option>
+
+<option>Cincinnati</option>
+
+<option>Clifton Park</option>
+
+<option>Cohoes</option>
+
+<option>Colorado Springs</option>
+
+<option>Columbia</option>
+
+<option>Copacabana/Ipanema</option>
+
+<option>Copenhagen</option>
+
+<option>Coppell</option>
+
+<option>Coraopolis</option>
+
+<option>Cordova</option>
+
+<option>Costa Mesa</option>
+
+<option>Courbevoie</option>
+
+<option>Cupertino</option>
+
+<option>Dalian</option>
+
+<option>Dallas</option>
+
+<option>Daly City</option>
+
+<option>Darwin</option>
+
+<option>Dearborn</option>
+
+<option>Delmar</option>
+
+<option>Denver</option>
+
+<option>Des Moines</option>
+
+<option>D&#39;Iberville</option>
+
+<option>Doha</option>
+
+<option>Dongcheng District</option>
+
+<option>Dresden</option>
+
+<option>Dubai</option>
+
+<option>Dublin</option>
+
+<option>Eagan</option>
+
+<option>Eden Praire</option>
+
+<option>Edmonton</option>
+
+<option>El Paso</option>
+
+<option>Elkins</option>
+
+<option>Ellensburg</option>
+
+<option>Emeryville</option>
+
+<option>Englewood</option>
+
+<option>Eugene</option>
+
+<option>Exeter</option>
+
+<option>Fairview</option>
+
+<option>Ferney-Voltaire</option>
+
+<option>Fishkill</option>
+
+<option>Florence</option>
+
+<option>Florham Park</option>
+
+<option>Fort Mill</option>
+
+<option>Fort Worth</option>
+
+<option>Foster City</option>
+
+<option>Frankfurt</option>
+
+<option>Fremont</option>
+
+<option>Frisco</option>
+
+<option>Futian District</option>
+
+<option>Galveston</option>
+
+<option>Gansevoort</option>
+
+<option>Garland</option>
+
+<option>Gautier</option>
+
+<option>Gilbert</option>
+
+<option>Glenview</option>
+
+<option>Gongshu District</option>
+
+<option>Grapevine</option>
+
+<option>Green Island</option>
+
+<option>Greenville</option>
+
+<option>Greer</option>
+
+<option>Grenoble</option>
+
+<option>Guilderland</option>
+
+<option>Hai Phong City</option>
+
+<option>Haidian District</option>
+
+<option>Haizhu District</option>
+
+<option>Halifax</option>
+
+<option>Hamberg</option>
+
+<option>Hamburg</option>
+
+<option>Hammersmith</option>
+
+<option>Hampton</option>
+
+<option>Hankou Wuhan</option>
+
+<option>Hanoi</option>
+
+<option>HAPPY VALLEY</option>
+
+<option>Harrisburg</option>
+
+<option>Harrison</option>
+
+<option>Hartford</option>
+
+<option>Haverhill</option>
+
+<option>Helsinki</option>
+
+<option>Heping District</option>
+
+<option>Heping District Tianjin</option>
+
+<option>HIllsboro</option>
+
+<option>Ho Chi Minh City</option>
+
+<option>Hobart</option>
+
+<option>Hong Kong</option>
+
+<option>Hoover</option>
+
+<option>Houston</option>
+
+<option>Huangpu District</option>
+
+<option>Hudson</option>
+
+<option>Humble</option>
+
+<option>Huntersville</option>
+
+<option>Irvine</option>
+
+<option>Irving</option>
+
+<option>Istanbul</option>
+
+<option>Jackson</option>
+
+<option>Jakarta</option>
+
+<option>Jersey City</option>
+
+<option>Jiangning District</option>
+
+<option>Jinqiao Export Proccesing Zone</option>
+
+<option>Johannesburg</option>
+
+<option>Johnston</option>
+
+<option>Kalispell</option>
+
+<option>Katy</option>
+
+<option>Kennesaw</option>
+
+<option>Kentwood</option>
+
+<option>Kuala Lumpur</option>
+
+<option>Kuala Setral</option>
+
+<option>Kuching Sarawak</option>
+
+<option>Kuningan</option>
+
+<option>Kyoto</option>
+
+<option>Lafayette</option>
+
+<option>Lake Charles</option>
+
+<option>Lake Forest</option>
+
+<option>Lake Oswego</option>
+
+<option>Lakewood</option>
+
+<option>Lancaster</option>
+
+<option>Laredo</option>
+
+<option>Las Vegas</option>
+
+<option>Lausanne</option>
+
+<option>League City</option>
+
+<option>Leander</option>
+
+<option>Lehi</option>
+
+<option>Lexington</option>
+
+<option>Lille</option>
+
+<option>Lincoln</option>
+
+<option>Littleton</option>
+
+<option>Liwan District</option>
+
+<option>London</option>
+
+<option>London, Ontario</option>
+
+<option>Long Beach</option>
+
+<option>Longmont</option>
+
+<option>Los Angeles</option>
+
+<option>Los Gatos</option>
+
+<option>Louisville</option>
+
+<option>Lowell</option>
+
+<option>Lyon</option>
+
+<option>Macau</option>
+
+<option>Macon</option>
+
+<option>Makati City</option>
+
+<option>Malina</option>
+
+<option>Malta</option>
+
+<option>Malvern</option>
+
+<option>Manassas</option>
+
+<option>Manchester</option>
+
+<option>Manila</option>
+
+<option>Mansfield</option>
+
+<option>Marseille</option>
+
+<option>McAllen</option>
+
+<option>McKinney</option>
+
+<option>Melbourne</option>
+
+<option>Melrose</option>
+
+<option>Menlo Park</option>
+
+<option>Mercer Island</option>
+
+<option>Mexico City</option>
+
+<option>Midland</option>
+
+<option>Milano</option>
+
+<option>Milpitas</option>
+
+<option>Milwaukee</option>
+
+<option>Minneapolis</option>
+
+<option>Mississauga</option>
+
+<option>Mobile</option>
+
+<option>Montpellier</option>
+
+<option>Montreal</option>
+
+<option>Mooresville</option>
+
+<option>Morrisville</option>
+
+<option>Moscow</option>
+
+<option>Mountain View</option>
+
+<option>Mountville,</option>
+
+<option>MRC Nagar</option>
+
+<option>Multiple Cities / Sao Paulo / Brasilia / etc.</option>
+
+<option>Mumbai</option>
+
+<option>Munchen</option>
+
+<option>Nanshan District</option>
+
+<option>New Braunfels</option>
+
+<option>New Rochelle</option>
+
+<option>New York</option>
+
+<option>Nice</option>
+
+<option>North Providence</option>
+
+<option>North Sioux City</option>
+
+<option>Novi</option>
+
+<option>Nusajaya</option>
+
+<option>Ocean Springs</option>
+
+<option>Orange</option>
+
+<option>Orlando</option>
+
+<option>Ottawa</option>
+
+<option>Oviedo</option>
+
+<option>Oxford</option>
+
+<option>Palm Harbor</option>
+
+<option>Palo Alto</option>
+
+<option>Paradise Valley</option>
+
+<option>Paris</option>
+
+<option>Pearland</option>
+
+<option>Pensacola</option>
+
+<option>Perth</option>
+
+<option>Petaluma</option>
+
+<option>Pflugerville</option>
+
+<option>Philadelphia</option>
+
+<option>Phoenix</option>
+
+<option>Pittsburgh</option>
+
+<option>Plano</option>
+
+<option>Playa Del Rey</option>
+
+<option>Pleasant Hill</option>
+
+<option>Pleasanton</option>
+
+<option>Plymouth</option>
+
+<option>Portland</option>
+
+<option>Princeton</option>
+
+<option>Providence</option>
+
+<option>Raleigh</option>
+
+<option>Redmond</option>
+
+<option>Redwood City</option>
+
+<option>Renmin S Rd Wuhou District</option>
+
+<option>Rennselaer</option>
+
+<option>Rensselaer</option>
+
+<option>Reston</option>
+
+<option>Richardson</option>
+
+<option>Richmond Hill / Markham</option>
+
+<option>Rio</option>
+
+<option>Rio de Janeiro</option>
+
+<option>Rio Rancho</option>
+
+<option>Riverside</option>
+
+<option>Rochester</option>
+
+<option>Rocklin</option>
+
+<option>Rockwall</option>
+
+<option>Rome</option>
+
+<option>Round Rock</option>
+
+<option>Salinas</option>
+
+<option>Salt Lake City</option>
+
+<option>San Antonio</option>
+
+<option>San Diego</option>
+
+<option>San Francisco</option>
+
+<option>San Francsico</option>
+
+<option>San Jose</option>
+
+<option>San Juan</option>
+
+<option>San Mateo</option>
+
+<option>San Rafael</option>
+
+<option>San Ramon</option>
+
+<option>Sandton</option>
+
+<option>Sandy</option>
+
+<option>Sandy Springs</option>
+
+<option>Santa Clara</option>
+
+<option>Santa Cruz</option>
+
+<option>Santa Monica</option>
+
+<option>Santiago</option>
+
+<option>Sao Paulo</option>
+
+<option>Saratoga</option>
+
+<option>Saratoga Springs</option>
+
+<option>Saskatoon</option>
+
+<option>Saskatoon,  Saskatchewan</option>
+
+<option>Saskatoon, Saskatchewan</option>
+
+<option>Scottsdale</option>
+
+<option>Seattle</option>
+
+<option>Seoul</option>
+
+<option>Shanghai</option>
+
+<option>Sikhotabong District</option>
+
+<option>Silver Spring</option>
+
+<option>Singapore</option>
+
+<option>Smyrna</option>
+
+<option>Solana Beach</option>
+
+<option>Somerset</option>
+
+<option>South Jordan</option>
+
+<option>Spring</option>
+
+<option>St. Charles</option>
+
+<option>St. Petersburg</option>
+
+<option>Stafford</option>
+
+<option>Stamford</option>
+
+<option>Stockton</option>
+
+<option>Stow</option>
+
+<option>Strasbourg</option>
+
+<option>Sugar Land</option>
+
+<option>Sunnyvale</option>
+
+<option>Surabaya</option>
+
+<option>Surry Hills</option>
+
+<option>Suzhou Industrial Park</option>
+
+<option>Suzhou New Distrci</option>
+
+<option>Sydney</option>
+
+<option>Taguig City</option>
+
+<option>Tampa</option>
+
+<option>Tbilisi</option>
+
+<option>Tel Aviv</option>
+
+<option>Tempe</option>
+
+<option>The Woodlands</option>
+
+<option>Thornhill &amp; Markham Ontario</option>
+
+<option>Tianhe District</option>
+
+<option>Tiburon</option>
+
+<option>Tokyo</option>
+
+<option>Torino</option>
+
+<option>Toronto</option>
+
+<option>Toulouse</option>
+
+<option>Tracy</option>
+
+<option>Troy</option>
+
+<option>Tualatin</option>
+
+<option>Tucson</option>
+
+<option>Tulsa</option>
+
+<option>Tustin</option>
+
+<option>Tyler</option>
+
+<option>Union City</option>
+
+<option>Vancouver</option>
+
+<option>Various</option>
+
+<option>Vernon Hills</option>
+
+<option>Victoria</option>
+
+<option>Waco</option>
+
+<option>Walnut Creek</option>
+
+<option>Waltham</option>
+
+<option>Wappingers Falls</option>
+
+<option>Warner Robins</option>
+
+<option>Washington</option>
+
+<option>Washington DC</option>
+
+<option>Watervliet</option>
+
+<option>Webster</option>
+
+<option>West Des Moines</option>
+
+<option>West Linn</option>
+
+<option>Wheaton</option>
+
+<option>White Plains</option>
+
+<option>Whitefish</option>
+
+<option>Wilsonville</option>
+
+<option>Wilton</option>
+
+<option>Winnipeg</option>
+
+<option>Winter Haven</option>
+
+<option>Winter Park</option>
+
+<option>Wuhan</option>
+
+<option>Wuhou District</option>
+
+<option>Wylie</option>
+
+<option>Xi&#39;an</option>
+
+<option>Xu Hui District</option>
+
+<option>Xuhui District</option>
+
+<option>Yuzhong District</option>
+
+<option>Zachary</option>
+
+<option>Zhongshan District</option>
+
+<option>Zhujiang New Town</option>
+
+<option>Zug / Lucerne</option>
+
+<option>Zurich / Lucerne / Zug / Basel</option>
+
+</select>&nbsp;<a href="/Partners/AddCityService">Add City</a></td>
+
+                <td><b>State</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="State" name="State" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="State" data-valmsg-replace="true"></span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><b>ZipCode:</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="ZipCode" name="ZipCode" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="ZipCode" data-valmsg-replace="true"></span>
+
+                </td>
+
+                <td><b>Country:</b></td>
+
+                <td class="editor-field">
+
+                    <select id="Country" name="Country"><option value="Argentina">Argentina</option>
+
+<option value="Australia">Australia</option>
+
+<option value="Bahrain">Bahrain</option>
+
+<option value="Belgium">Belgium</option>
+
+<option value="Brazil">Brazil</option>
+
+<option value="Canada">Canada</option>
+
+<option value="Chile">Chile</option>
+
+<option value="China">China</option>
+
+<option value="Denmark">Denmark</option>
+
+<option value="England">England</option>
+
+<option value="Finland">Finland</option>
+
+<option value="France">France</option>
+
+<option value="Georgia">Georgia</option>
+
+<option value="Germany">Germany</option>
+
+<option value="India">India</option>
+
+<option value="Indonesia">Indonesia</option>
+
+<option value="Ireland">Ireland</option>
+
+<option value="Israel">Israel</option>
+
+<option value="Italy">Italy</option>
+
+<option value="Japan">Japan</option>
+
+<option value="Lao">Lao</option>
+
+<option value="Malaysia">Malaysia</option>
+
+<option value="Mexico">Mexico</option>
+
+<option value="Netherlands">Netherlands</option>
+
+<option value="Philippines">Philippines</option>
+
+<option value="Puerto Rico">Puerto Rico</option>
+
+<option value="Qatar">Qatar</option>
+
+<option value="Russia">Russia</option>
+
+<option value="Singapore">Singapore</option>
+
+<option value="South Africa">South Africa</option>
+
+<option value="South Korea">South Korea</option>
+
+<option value="Spain">Spain</option>
+
+<option value="Switzerland">Switzerland</option>
+
+<option value="Thailand">Thailand</option>
+
+<option value="Turkey">Turkey</option>
+
+<option value="UAE">UAE</option>
+
+<option value="United Arab Emirates">United Arab Emirates</option>
+
+<option value="United Kingdom">United Kingdom</option>
+
+<option selected="selected" value="USA">USA</option>
+
+<option value="Vietnam">Vietnam</option>
+
+</select>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><b>Phone :</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="Phone" name="Phone" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="Phone" data-valmsg-replace="true"></span>
+
+                </td>
+
+                <td><b>Fax :</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="Fax" name="Fax" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="Fax" data-valmsg-replace="true"></span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><b>Email :</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="Email" name="Email" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+
+                </td>
+
+            </tr>
+
+            <tr style="text-decoration: underline"><td><b>Contact Details</b></td></tr>
+
+            <tr><td> </td></tr>
+
+            <tr><td> </td></tr>
+
+            <tr>
+
+                <td><b>ContactName:</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="ContactName" name="ContactName" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="ContactName" data-valmsg-replace="true"></span>
+
+                </td>
+
+                <td><b>ContactPhone:</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="ContactPhone" name="ContactPhone" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="ContactPhone" data-valmsg-replace="true"></span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><b>Notes :</b></td>
+
+                <td class="editor-field">
+
+                    <textarea cols="50" id="Notes" name="Notes" rows="4">
+
+</textarea>
+
+                    <span class="field-validation-valid" data-valmsg-for="Notes" data-valmsg-replace="true"></span>
+
+                </td>
+
+                <td><b>ContactEmail:</b></td>
+
+                <td class="editor-field">
+
+                    <input class="text-box single-line" id="ContactEmail" name="ContactEmail" type="text" value="" />
+
+                    <span class="field-validation-valid" data-valmsg-for="ContactEmail" data-valmsg-replace="true"></span>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <p>
+
+        <input type="submit" value="Create Partners" class="pomegranate-flat-button" />
+
+    </p>
+
+</form>
+
+
+
+
+
+
+
+<p></p>
+
+
+
+<script>
+
+    $(document).foundation();
+
+</script>
+
+
+
+                        <br/>
+
+                    </div>
+
+               </div>
+
+            </section>
+
+        </div>
+
+        <script>
+
+            $(document).foundation();
+
+        </script>
+
+</body>
+
+</html>
+
