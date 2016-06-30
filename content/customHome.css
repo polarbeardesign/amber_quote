@@ -5,7 +5,7 @@ BODY, HTML {
 }
 
 HTML { 
-  background: url(images/Swiss-Belhote-Exterior-blurred.jpg) no-repeat center center fixed !important; 
+  background: url(images/Swiss-Belhote-Exterior-blurred.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -124,4 +124,180 @@ form .row .postfix-radius.row.collapse .postfix {
 	-webkit-border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 	border-top-right-radius: 3px; 
+}
+
+/* -----------------------------------------
+ 160628 style update overrides
+--------------------------------------------*/
+
+HTML { 
+  background: url(images/LandingPage_5.jpg) no-repeat center center fixed; 
+}
+
+#body * #Content {
+	font-family: 'Open Sans', sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.name > h1 > a {
+	color: #fefefe;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	margin: 0.65em 0 0 0;
+}
+
+.contain-to-grid, .top-bar, .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+	background: #333;
+}
+
+.homecontent .panel {
+	background-image: url(images/shade_lite.png);
+	border-radius: 0;
+}
+
+.homecontent .panel ul {
+	margin-bottom: 0;
+}
+
+form {
+  margin: 0;
+}
+
+.homecontent h4 {
+  font-size: 1.25rem;
+  color: #424242;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+a, li {
+  font-size: 0.85em;
+  color: #424242;
+  font-weight: normal;
+  }
+
+a:hover {
+  color: #337ab7;
+}
+
+a.button, .button.secondary {
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85em;
+  height: auto; 
+  padding: 0.9em 1.8em;
+  background: #003399;
+  border-bottom: 0;
+  cursor: pointer;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.button.postfix:hover, .button:focus, .button.secondary:hover, .button.secondary:focus {
+	background: #003399; 
+}
+
+.panel-float {
+  float: left;
+}
+
+.create_new {
+  margin-top: 0;
+  margin-bottom: 0;
+  float: right; 
+}
+
+form .row .postfix-radius.row.collapse .postfix {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0; 
+}
+
+/* ----- #DebugHeader ------ */
+#DebugHeader {
+	background-color: #c00;
+	padding: 3px 0;
+}
+#DebugHeader p {
+	color: #fff;
+  width: auto;
+  margin: 0;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 10px;
+    clear: both;
+}
+
+@media only screen and (min-width: 650px /*40.063em*/) {
+
+.homecontent * ul.pull-right {
+margin: 0 0 0 75%;
+}
+
+.separater {
+border-left: 1px solid #999;
+}
+
+.top-bar-section > ul > .divider {
+	border-right: solid 1px #aaa;
+}
+
+.fixed.expanded:not(.top-bar) .top-bar-section {
+  z-index: 98;
+  margin-top: auto;
+}
+
+.top-bar {
+  height: auto;
+  line-height: normal;
+}
+
+.top-bar .name {
+  height: auto;
+}
+.top-bar .name h1 {
+  line-height: normal;
+}
+
+.top-bar .toggle-topbar a {
+  height: auto;
+  line-height: normal;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  line-height: 2.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  line-height: normal;
+}
+
+.top-bar-section .dropdown li a {
+  line-height: normal;
+}
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  height: 34px;
+}
+.top-bar-section .has-form {
+  height: auto;
+}
+
+.top-bar-section .has-dropdown > a:after {
+  top: 16px;
+}
+
 }

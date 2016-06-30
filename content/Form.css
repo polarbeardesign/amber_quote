@@ -49,7 +49,7 @@ form{
 
 label.radio {
 	cursor: pointer;
-  text-indent: 20px;
+  text-indent: 24px;
   overflow: visible;
   display: inline-block;
   position: relative;
@@ -57,13 +57,14 @@ label.radio {
 }
 
 label.radio:before {
-  background: #454545;
+  background: #fff;
   content:'';
   position: absolute;
-  top:2px;
+  top:-2px;
   left: 0;
   width: 18px;
   height: 18px;
+  border: 1px solid #ddd;
   border-radius: 100%;
 }
 
@@ -74,9 +75,10 @@ label.radio:after {
 	width: 0.5em;
 	height: 0.25em;
 	background: transparent;
-	top: 7.5px;
-	left: 4.5px;
-	border: 3px solid #ffffff;
+	top: 4px;
+	left: 6px;
+	border: 6px solid #454545;
+	border-radius: 100%;
 	border-top: none;
 	border-right: none;
 

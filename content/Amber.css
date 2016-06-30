@@ -1244,3 +1244,416 @@ td.memtable {
 .blue {
 	color: #0000FF;
 }
+
+/* -----------------------------------------
+ 160622 style update overrides
+--------------------------------------------*/
+
+#body * #Content {
+	background-color: #fff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+BODY,INPUT,SELECT,TEXTAREA,.ui-widget {
+	font-family: 'Open Sans', sans-serif !important;
+}
+
+BODY,INPUT,SELECT,TEXTAREA,.ui-widget,.ui-widget-content {
+	color:  #808285;
+}
+
+A.AZUMARegText12Link {
+	font-family: 'Open Sans', sans-serif;
+}
+A.AZUMARegText12Link:visited {
+	font-family: 'Open Sans', sans-serif;
+}
+.RegularErrorText {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.AZUMAHeaderText {
+	font-family: Arial, Helvetica, Sans-Serif;
+	color: #808285;
+}
+
+.AZUMARegText8 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMARegText10 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.AZUMAPadText10 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.AZUMARegText12 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.sectionheader {
+	color: #808285;
+}
+
+.AZUMARegTextTiny {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.AZUMARegText11 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+.AZUMARegText11Bold {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.AZUMARegText11Link:link {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMARegText11Link:visited {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMARegText14 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMARegText15 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMARegText16 {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMATinyText {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+.AZUMARegText14Bold {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.red {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.green {
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+.greenbold {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.breadcrumb {
+	color: #808285;
+	font-family: 'Open Sans', sans-serif;
+}
+a.breadcrumb, a.breadcrumb:link, a.breadcrumb:visited, a.breadcrumb:active {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.pomegranate-flat-button {
+  height: auto; 
+  padding: 0.9em 1.8em;
+  background: #003399;
+  border-bottom: 0;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+  font-weight: 600;
+  
+  cursor: pointer;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  position: relative;
+  vertical-align: top;
+  font-size: 12px;
+  padding:20 20 20 120;
+  color: #fff;
+  text-align: center;
+  text-shadow: none;
+
+}
+
+form > p > input.pomegranate-flat-button {
+float: right;
+margin-right: 20px;
+}
+
+a, a:link, a:visited {
+color: #0047aa;
+}
+
+.name > h1 > a {
+	color: #fefefe;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+}
+
+body,
+input,
+textarea,
+select {
+  color: #424242;
+}
+
+body .testbox {
+  color: #808285;
+  background-color: #ebeced; 
+  margin: 20px;
+  padding: 20px;
+}
+
+.testbox * input[type=text], .testbox * select, .testbox * textarea  {
+  background: #fff;
+  padding: 6px;
+  font-size: 0.9em;
+  color: #333;
+  width: 90%;
+  margin: 0 0.5em 0.5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  height: auto;
+  box-shadow: none;
+}
+
+.testbox * select {
+  height: 1.8125rem;
+}
+
+input#VIP {
+  margin-left: 0.5em;
+}
+
+header * h1{
+  padding-top: 7px;
+}
+
+form > h1{
+  color: #424242;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  float: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 1.667em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  float: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.name > h1 > a {
+	color: #fefefe;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	margin: 0 0 0 0;
+	  text-transform: none;
+}
+
+.testbox * input[type=checkbox] {
+  border: 1px solid #ddd;
+}
+
+.testbox * b {
+  font-weight: normal;
+}
+
+#NewLead * h3, h3, h4 {
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#editLeadForm > h2 {
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.testbox * input[type=text]:focus, .testbox * select:focus, .testbox * textarea:focus {
+  border-color:#66afe9;
+  outline:0;
+  -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+h4.clear > select {
+  width: 15%;
+}
+
+.editor-field > select#City {
+  width: 45%;
+}
+
+header p {
+  width: auto;
+  margin-left: 0;
+  font-size: 11px;
+}
+
+header * img {
+vertical-align: baseline;
+}
+
+fieldset {
+margin-left: 0;
+}
+
+table.gridTable {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin: 0;
+  font-size: 0.6875rem;
+}
+
+table.gridTable th {
+  font-weight: normal;
+  color: #fff;
+  background-color: #333;
+}
+
+table.gridTable tr:nth-child(2n) {
+background-color: #f0f0f0;
+}
+
+table.gridTable td, table.gridTable th {
+  padding: 10px;
+}
+
+.contain-to-grid, .top-bar, .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+	background: #333;
+}
+
+label {
+  padding-top: 0;
+  clear: none;
+}
+
+
+input[type=radio] {
+  visibility: hidden;
+}
+
+label.radio {
+	cursor: pointer;
+  text-indent: 24px;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1em;
+  margin-right: 3em;
+}
+
+label.radio:before {
+  background: #fff;
+  content:'';
+  position: absolute;
+  top:-2px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+}
+
+label.radio:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 0.5em;
+	height: 0.25em;
+	background: transparent;
+	top: 4px;
+	left: 6px;
+	border: 6px solid #454545;
+	border-radius: 100%;
+	border-top: none;
+	border-right: none;
+}
+
+input[type=radio]:checked + label:after {
+	opacity: 1;
+}
+
+
+@media only screen and (min-width: 650px /*40.063em*/) {
+
+
+.top-bar-section > ul > .divider {
+	border-right: solid 1px #aaa;
+}
+
+.fixed.expanded:not(.top-bar) .top-bar-section {
+  z-index: 98;
+  margin-top: auto;
+}
+
+.top-bar {
+  height: auto;
+  line-height: normal;
+}
+
+.top-bar .name {
+  height: auto;
+}
+.top-bar .name h1 {
+  line-height: normal;
+}
+
+.top-bar .toggle-topbar a {
+  height: auto;
+  line-height: normal;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  line-height: 2.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  line-height: normal;
+}
+
+.top-bar-section .dropdown li a {
+  line-height: normal;
+}
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  height: 34px;
+}
+.top-bar-section .has-form {
+  height: auto;
+}
+
+.top-bar-section .has-dropdown > a:after {
+  top: 16px;
+}
+
+}
